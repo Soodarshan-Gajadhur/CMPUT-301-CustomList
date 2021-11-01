@@ -58,18 +58,20 @@ public class CustomList extends ArrayAdapter<City> {
         return;
     }
 
-    public int hasCity(City city) {
-
-        return 2;
+    public boolean hasCity(City city) {
+        return cities.contains(city);
     }
 
     public void delete(City city){
-        return;
+        if (!cities.contains(city)) {
+            throw new IllegalArgumentException();
+        }
+
+        cities.remove(city);
     }
 
     public int countCities() {
-
-        return -1;
+        return cities.size();
     }
 
 }
